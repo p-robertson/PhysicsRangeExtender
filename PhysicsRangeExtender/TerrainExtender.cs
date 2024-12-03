@@ -80,7 +80,6 @@ namespace PhysicsRangeExtender
                 {
                     case LandedVesselsStates.NotFocused:
 
-                       
                         if (currentVesselData.Vessel != _tvel)
                         {
                             if (VesselsLandedToLoad.Any(x =>
@@ -115,7 +114,7 @@ namespace PhysicsRangeExtender
                         {
                             currentVesselData.LandedState = LandedVesselsStates.Focused;
 
-                            foreach (var vesselLandedState in VesselsLandedToLoad.Where(x =>x.LandedState == LandedVesselsStates.NotFocused && Vector3.Distance(currentVessel.CoM, x.Vessel.CoM) < 2500))
+                            foreach (var vesselLandedState in VesselsLandedToLoad.Where(x => x.LandedState == LandedVesselsStates.NotFocused && Vector3.Distance(currentVessel.CoM, x.Vessel.CoM) < 2500))
                             {
                                 vesselLandedState.LandedState = LandedVesselsStates.Focused;
                             }
@@ -128,8 +127,8 @@ namespace PhysicsRangeExtender
                         currentVessel.SetPosition(currentVesselData.InitialPosition + currentVessel.up.normalized * currentVessel.vesselSize.magnitude);
                         currentVessel.SetWorldVelocity(Vector3.zero);
                         currentVessel.UpdateLandedSplashed();
-                            currentVesselData.LandedState = LandedVesselsStates.Lifted;
-                        
+                        currentVesselData.LandedState = LandedVesselsStates.Lifted;
+
                         break;
                     case LandedVesselsStates.Lifted:
 
@@ -149,7 +148,7 @@ namespace PhysicsRangeExtender
                     case LandedVesselsStates.Landed:
                         currentVessel.SetWorldVelocity(Vector3.zero);
                         break;
-                  
+
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
@@ -264,7 +263,6 @@ namespace PhysicsRangeExtender
             CheatOptions.UnbreakableJoints = _joints;
         }
 
-
         private void Start()
         {
             if (!PreSettings.ModEnabled) return;
@@ -272,9 +270,6 @@ namespace PhysicsRangeExtender
 
             _initialLoading = true;
         }
-   
-
-       
 
         public static void ActivateNoCrashDamage()
         {

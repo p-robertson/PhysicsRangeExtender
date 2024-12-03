@@ -20,7 +20,7 @@ namespace PhysicsRangeExtender
         private readonly float _incrButtonWidth = 26;
         private readonly float contentWidth = WindowWidth - 2 * LeftIndent;
         private readonly float entryHeight = 20;
-        
+
         private bool _gameUiToggle;
         private string _guiGlobalRangeForVessels = String.Empty;
 
@@ -67,7 +67,6 @@ namespace PhysicsRangeExtender
         {
             GUI.DragWindow(new Rect(0, 0, WindowWidth, DraggableHeight));
             float line = 0;
-           
 
             DrawTitle();
             line++;
@@ -82,7 +81,6 @@ namespace PhysicsRangeExtender
             }
             DisableMod(line);
 
-
             _windowHeight = ContentTop + line * entryHeight + entryHeight + entryHeight;
             _windowRect.height = _windowHeight;
         }
@@ -90,7 +88,6 @@ namespace PhysicsRangeExtender
         private void DisableMod(float line)
         {
             var saveRect = new Rect(LeftIndent, ContentTop + line * entryHeight, contentWidth, entryHeight);
-
 
             if (PreSettings.ModEnabled)
             {
@@ -112,13 +109,12 @@ namespace PhysicsRangeExtender
             }
         }
 
-
         private void DrawGlobalVesselRange(float line)
         {
             var leftLabel = new GUIStyle
             {
                 alignment = TextAnchor.UpperLeft,
-                normal = {textColor = Color.white}
+                normal = { textColor = Color.white }
             };
 
             GUI.Label(new Rect(LeftIndent, ContentTop + line * entryHeight, 60, entryHeight), "Global range:",
@@ -127,7 +123,6 @@ namespace PhysicsRangeExtender
             var fwdFieldRect = new Rect(LeftIndent + contentWidth - textFieldWidth - 3 * _incrButtonWidth,
                   ContentTop + line * entryHeight, textFieldWidth, entryHeight);
             _guiGlobalRangeForVessels = GUI.TextField(fwdFieldRect, _guiGlobalRangeForVessels);
-          
         }
 
         private void DrawCamFixMultiplier(float line)
@@ -144,8 +139,7 @@ namespace PhysicsRangeExtender
             var fwdFieldRect = new Rect(LeftIndent + contentWidth - textFieldWidth - 3 * _incrButtonWidth,
                 ContentTop + line * entryHeight, textFieldWidth, entryHeight);
 
-           this._guiCamFixMultiplier = GUI.TextField(fwdFieldRect, _guiCamFixMultiplier);
-           
+            this._guiCamFixMultiplier = GUI.TextField(fwdFieldRect, _guiCamFixMultiplier);
         }
 
         private void DrawSaveButton(float line)
@@ -179,7 +173,7 @@ namespace PhysicsRangeExtender
             var centerLabel = new GUIStyle
             {
                 alignment = TextAnchor.UpperCenter,
-                normal = {textColor = Color.white}
+                normal = { textColor = Color.white }
             };
             var titleStyle = new GUIStyle(centerLabel)
             {

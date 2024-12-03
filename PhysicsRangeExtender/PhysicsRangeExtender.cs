@@ -75,7 +75,6 @@ namespace PhysicsRangeExtender
             GameEvents.onVesselSituationChange.Add(SituationChangeFixes);
         }
 
-
         private void NewVesselIsLoaded(Vessel vessel)
         {
             if (vessel != null && !vessel.isActiveVessel && vessel.Landed && vessel.vesselType != VesselType.Debris && Vector3.Distance(vessel.CoM, FlightGlobals.ActiveVessel.CoM) > 2500)
@@ -88,7 +87,6 @@ namespace PhysicsRangeExtender
                         LandedState = TerrainExtender.LandedVesselsStates.NotFocused
                     }); ;
         }
-
 
         private void ApplyPhysRange(Vessel data0, Vessel data1)
         {
@@ -111,7 +109,6 @@ namespace PhysicsRangeExtender
         {
             ApplyRangesToVessels();
         }
-
 
         private void Update()
         {
